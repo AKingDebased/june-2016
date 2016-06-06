@@ -10,26 +10,46 @@ language
 <!-- tag based language -->
 <!-- Document Object Model (DOM) -->
 <html>
-  <head>
-    <title>my website</title>
-  </head>
-  <body>
-    <!-- the body tag is for content (this is a comment!)-->
-    <!-- header tag -->
-    <h1>hello world!</h1>
-    <!-- horizontal rule (empty tag)-->
-    <hr>
-    <!-- img tag with an src attribute-->
-    <a href="http://nkla.org/">
-      <img src="https://s-media-cache-ak0.pinimg.com/736x/ec/76/f1/ec76f1a817adef30619cbd2939e8406e.jpg">
-    </a>
-    <!-- anchor tag with an href attribute-->
-    <a href="http://google.com">go to google!</a>
+<head>
+  <title>my website</title>
+</head>
+<body>
+  <!-- the body tag is for content (this is a comment!)-->
+  <!-- header tag -->
+  <h1>hello world!</h1>
+  <!-- horizontal rule (empty tag)-->
+  <hr>
+  <!-- img tag with an src attribute-->
+  <a href="http://nkla.org/">
+    <img src="https://s-media-cache-ak0.pinimg.com/736x/ec/76/f1/ec76f1a817adef30619cbd2939e8406e.jpg">
+  </a>
 
-    <p>hello! this is my simple paragraph! on my simple site!</p>
+  <!-- linking to a local image -->
+  <img src="img/pitbull-puppy.jpg">
+
+  <!-- anchor tag with an href attribute-->
+  <a href="http://google.com">go to google!</a>
+
+  <!-- link to a local html file -->
+  <a href="pages/new-page.html">go to my new page!</a>
+
+  <!-- CSS
+  cascading
+  style
+  sheets
+
+  key:value based language
+  (i.e. property:value based language)
+  -->
+
+  <!-- divs are used for grouping tags -->
+  <!-- more specific always wins -->
+  <div style="color:red;font-size:50px;">
+    <p style="color:green">hello! this is my simple paragraph! on my simple site!</p>
 
     <p>if i type text anywhere on the page it will still show up!</p>
 
     <p>this is a line break. typing some new stuff!</p>
-  </body>
+  </div>
+</body>
 </html>

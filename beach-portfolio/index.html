@@ -13,47 +13,18 @@ language
 <head>
   <title>my website</title>
 
-  <!-- html tag that allows us to write CSS in an HTML document -->
-  <style>
-  /* tag selector */
-  /* selects all instances of this tag */
-  img{
-    width:350px;
-  }
-
-  /* class selector */
-  .center-text{
-    text-align:center;
-  }
-
-  .project-image{
-    box-shadow:3px 3px 8px grey;
-    margin:0 auto;
-    display:block;
-  }
-
-  /* id selector */
-  #special-text{
-    color:fuchsia;
-  }
-
-  /* css specificity
-  inline style
-  id selector
-  class selector
-  tag selector
-  */
-  </style>
+  <!-- links us to an external css file -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="center-text">
     <h1>my beachcoders portfolio</h1>
     <img src="img/beach-coders-logo.png">
   </div>
-
   <hr>
-
   <div>
+    <iframe class="page-video" width="560" height="315" src="https://www.youtube.com/embed/nKIu9yen5nc" frameborder="0" allowfullscreen></iframe>
+
     <h1 class="center-text">projects</h1>
     <h2 class="center-text" id="special-text">portfolio site</h2>
     <a href="">
@@ -62,5 +33,12 @@ language
     <p>a simple portfolio site for all my work here at beachcoders!</p>
     <a href="#">check it out!</a>
   </div>
+
+  <p>listen to this smooth jam</p>
+  <audio controls>
+    <source src="media/say-it-isnt-so.mp3"/>
+  </audio>
+
+  <iframe class="page-video" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4833.050945754053!2d-118.39122744602273!3d33.92520690033246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b6b4169a6f27%3A0xa8cab144be23c59b!2s615+N+Nash+St%2C+El+Segundo%2C+CA+90245!5e0!3m2!1sen!2sus!4v1465324627647" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
 </body>
 </html>

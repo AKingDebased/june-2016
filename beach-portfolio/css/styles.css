@@ -1,0 +1,39 @@
+/* tag selector */
+/* selects all instances of this tag */
+body{
+  /*hexadecimal*/
+  background-color:#b3ffff;
+}
+
+img{
+  width:350px;
+}
+
+/* class selector */
+.center-text{
+  text-align:center;
+}
+
+.project-image{
+  box-shadow:3px 3px 8px grey;
+  margin:0 auto;
+  display:block;
+}
+
+.page-video{
+  /*centering trick!*/
+  margin:0 auto;
+  display:block;
+}
+
+/* id selector */
+#special-text{
+  color:fuchsia;
+}
+
+/* css specificity
+inline style
+id selector
+class selector
+tag selector
+*/

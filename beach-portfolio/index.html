@@ -12,44 +12,55 @@ language
 <html>
 <head>
   <title>my website</title>
+
+  <!-- html tag that allows us to write CSS in an HTML document -->
+  <style>
+  /* tag selector */
+  /* selects all instances of this tag */
+  img{
+    width:350px;
+  }
+
+  /* class selector */
+  .center-text{
+    text-align:center;
+  }
+
+  .project-image{
+    box-shadow:3px 3px 8px grey;
+    margin:0 auto;
+    display:block;
+  }
+
+  /* id selector */
+  #special-text{
+    color:fuchsia;
+  }
+
+  /* css specificity
+  inline style
+  id selector
+  class selector
+  tag selector
+  */
+  </style>
 </head>
 <body>
-  <!-- the body tag is for content (this is a comment!)-->
-  <!-- header tag -->
-  <h1>hello world!</h1>
-  <!-- horizontal rule (empty tag)-->
+  <div class="center-text">
+    <h1>my beachcoders portfolio</h1>
+    <img src="img/beach-coders-logo.png">
+  </div>
+
   <hr>
-  <!-- img tag with an src attribute-->
-  <a href="http://nkla.org/">
-    <img src="https://s-media-cache-ak0.pinimg.com/736x/ec/76/f1/ec76f1a817adef30619cbd2939e8406e.jpg">
-  </a>
 
-  <!-- linking to a local image -->
-  <img src="img/pitbull-puppy.jpg">
-
-  <!-- anchor tag with an href attribute-->
-  <a href="http://google.com">go to google!</a>
-
-  <!-- link to a local html file -->
-  <a href="pages/new-page.html">go to my new page!</a>
-
-  <!-- CSS
-  cascading
-  style
-  sheets
-
-  key:value based language
-  (i.e. property:value based language)
-  -->
-
-  <!-- divs are used for grouping tags -->
-  <!-- more specific always wins -->
-  <div style="color:red;font-size:50px;">
-    <p style="color:green">hello! this is my simple paragraph! on my simple site!</p>
-
-    <p>if i type text anywhere on the page it will still show up!</p>
-
-    <p>this is a line break. typing some new stuff!</p>
+  <div>
+    <h1 class="center-text">projects</h1>
+    <h2 class="center-text" id="special-text">portfolio site</h2>
+    <a href="">
+      <img class="project-image" src="img/project1.png" alt="">
+    </a>
+    <p>a simple portfolio site for all my work here at beachcoders!</p>
+    <a href="#">check it out!</a>
   </div>
 </body>
 </html>

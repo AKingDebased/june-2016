@@ -1,8 +1,15 @@
 /* tag selector */
 /* selects all instances of this tag */
+
+/* universal selector */
+*{
+  font-family: 'Raleway', sans-serif;
+}
+
 body{
   /*hexadecimal*/
   background-color:#b3ffff;
+  margin:0;
 }
 
 img{
@@ -10,6 +17,41 @@ img{
 }
 
 /* class selector */
+
+/* multi-element selector*/
+.navbar, .navbar-container, .navbar div{
+  height:100px;
+}
+
+.navbar{
+  background-color:white;
+  box-shadow:0px 5px 10px grey;
+  width:100%;
+  position:fixed;
+  top:0px;
+  text-align:center;
+}
+
+/* descendent selector */
+.navbar div{
+  display:inline-block;
+  width:100px;
+  margin:0px -2px;
+  text-align:center;
+  padding-top: 35px;
+  box-sizing: border-box;
+}
+
+/*pseudo-selector*/
+.navbar div:hover{
+  background-color:darkgrey;
+}
+
+.navbar div:active{
+  background-color:lightgrey;
+}
+
+
 .center-text{
   text-align:center;
 }

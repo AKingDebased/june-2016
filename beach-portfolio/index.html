@@ -13,15 +13,25 @@ language
 <head>
   <title>my website</title>
 
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,400italic,700,700italic' rel='stylesheet' type='text/css">
   <!-- links us to an external css file -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="navbar-container">
+    <div class="navbar">
+      <a href="#"><div>home</div></a>
+      <div>about</div>
+      <div>contact</div>
+    </div>
+  </div>
+
   <div class="center-text">
     <h1>my beachcoders portfolio</h1>
     <img src="img/beach-coders-logo.png">
   </div>
   <hr>
+
   <div>
     <iframe class="page-video" width="560" height="315" src="https://www.youtube.com/embed/nKIu9yen5nc" frameborder="0" allowfullscreen></iframe>
 
@@ -30,10 +40,10 @@ language
     <a href="">
       <img class="project-image" src="img/project1.png" alt="">
     </a>
-    <p>a simple portfolio site for all my work here at beachcoders!</p>
-    <a href="#">check it out!</a>
-  </div>
 
+    <p class="center-text">a simple portfolio site for all my work here at beachcoders!</p>
+    <a class="center-text" href="#">check it out!</a>
+  </div>
   <p>listen to this smooth jam</p>
   <audio controls>
     <source src="media/say-it-isnt-so.mp3"/>

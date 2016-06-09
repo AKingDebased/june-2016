@@ -16,6 +16,28 @@ img{
   width:350px;
 }
 
+form{
+  padding:15px;
+  text-align:center;
+  max-width:650px;
+  margin:0 auto;
+}
+
+input:not([type="radio"]), textarea{
+  height:45px;
+  width:100%;
+  font-size:30px;
+}
+
+input[type="submit"]{
+  margin-top:15px;
+}
+
+textarea{
+  height:250px;
+  resize:none;
+}
+
 /* class selector */
 
 /* multi-element selector*/

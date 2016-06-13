@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>js playground</title>
+
+  <style>
+  .square{
+    height:150px;
+    width:150px;
+    background-color:dodgerblue;
+  }
+  </style>
+</head>
+<body>
+  <div style="border:1px solid red" class="square"></div>
+
+  <script>
+  /* 1.) receive user input - color
+  2.) change color of element to
+  user's color
+  */
+
+  //numbers
+  //strings
+  //(sort of) objects
+
+  //functions with return values (like prompt)
+  //store their return values in the variables
+  //they are set to
+  var userColor = prompt("pick a color!");
+
+  //a simple function used for debugging
+  //prints the given argument in the web console
+  console.log(userColor);
+
+  var squareElement = document.querySelector(".square");
+  squareElement.style.backgroundColor = userColor;
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+body{
+  background-color:dodgerblue;
+}
+
+.log-in{
+  display:block;
+  margin:0 auto;
+  margin-top:15px;
+}
+
+.log-in-area{
+  text-align:center;
+}

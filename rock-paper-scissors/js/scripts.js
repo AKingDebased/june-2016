@@ -5,13 +5,18 @@
 4.) display results
 */
 
-var userHand;
-var randHandNum;
-var resultsDiv = document.querySelector(".results");
+var userHand, randHandNum;
+var computerHand
+var resultsDiv = document.querySelector(".results"), body = document.querySelector("body");
 var isPlaying = true;
-var computerHand;
+var playerWins = 0, computerWins = 0;
 
-while(isPlaying === true){
+var handleGame = function(result,color){
+  resultsDiv.innerHTML = computerHand + " " + result;
+  body.style.backgroundColor = color;
+}
+
+while(isPlaying && playerWins !== 3 && computerWins !== 3){
   userHand = prompt("rock, paper, or scissors?");
   randHandNum = Math.floor(Math.random() * 3)
 
@@ -31,37 +36,52 @@ while(isPlaying === true){
 
   if(userHand === "rock"){
     if(randHandNum === 0){
-      resultsDiv.innerHTML = computerHand + " it's a tie!";
+      handleGame("it's a tie!","yellow");
     } else if(randHandNum === 1){
-      resultsDiv.innerHTML = computerHand + " you lose!";
+      handleGame("you lose","red");
+      //increase value of variable by one
+      computerWins++;
     } else if (randHandNum === 2){
-      resultsDiv.innerHTML = computerHand + " you win!";
+      handleGame("you win!","chartreuse")
+      playerWins++;
     } else {
-      resultsDiv.innerHTML = computerHand + " it's a tie!";
+      resultsDiv.innerHTML = "whoops!";
     }
   } else if(userHand === "paper") {
-    if(computerHand === 0){
-      resultsDiv.innerHTML = "computer threw rock! it's a tie!";
-    } else if(computerHand === 1){
-      resultsDiv.innerHTML = "computer threw rock! it's a tie!";
-    } else if (computerHand === 2){
-      resultsDiv.innerHTML = "computer threw rock! it's a tie!";
+    if(randHandNum === 0){
+      handleGame("you lose!","red")
+      computerWins++;
+    } else if(randHandNum === 1){
+      handleGame("it's a tie","yellow")
+    } else if (randHandNum === 2){
+      handleGame("you win!","chartreuse")
+      playerWins++;
     } else {
-      resultsDiv.innerHTML = "computer threw rock! it's a tie!";
+      resultsDiv.innerHTML = "whoops!";
     }
   } else if(userHand === "scissors"){
-    if(computerHand === 0){
-      resultsDiv.innerHTML = "computer threw rock! it's a tie!";
-    } else if(computerHand === 1){
-      resultsDiv.innerHTML = "computer threw rock! it's a tie!";
-    } else if (computerHand === 2){
-      resultsDiv.innerHTML = "computer threw rock! it's a tie!";
+    if(randHandNum === 0){
+      handleGame("you lose!","red");
+      computerWins++;
+    } else if(randHandNum === 1){
+      handleGame("you win!","chartreuse");
+      playerWins++;
+    } else if (randHandNum === 2){
+      handleGame("it's a tie!","yellow");
     } else {
-      resultsDiv.innerHTML = "computer threw rock! it's a tie!";
+      resultsDiv.innerHTML = "whoops!";
     }
   } else {
     resultsDiv.innerHTML = "sorry! we don't support " + userHand;
   }
 
-  isPlaying = confirm("do you want to play again?");
+  if(playerWins !== 3 && computerWins !== 3){
+    isPlaying = confirm("do you want to play again?");
+  }
+}
+
+if(playerWins >= 3){
+  resultsDiv.innerHTML = "player wins!";
+} else if (computerWins >= 3){
+  resultsDiv.innerHTML = "computer wins!"
 }

@@ -7,7 +7,12 @@
 
 var userHand, randHandNum;
 var computerHand
-var resultsDiv = document.querySelector(".results"), body = document.querySelector("body");
+var resultsDiv = document.querySelector(".results")
+var body = document.querySelector("body")
+var playButton = document.querySelector(".play-game")
+var playerWinsDisplay = document.querySelector(".player-wins");
+var compWins = document.querySelector(".comp-wins");
+var radioButtons = document.querySelectorAll("input");
 var isPlaying = true;
 var playerWins = 0, computerWins = 0;
 
@@ -16,12 +21,16 @@ var handleGame = function(result,color){
   body.style.backgroundColor = color;
 }
 
-while(isPlaying && playerWins !== 3 && computerWins !== 3){
-  userHand = prompt("rock, paper, or scissors?");
+playButton.onclick = function(){
   randHandNum = Math.floor(Math.random() * 3)
 
-  while(userHand !== "rock" && userHand !== "paper" && userHand !== "scissors"){
-    userHand = prompt("not quite. rock, paper, or scissors?");
+  //looping through the radio buttons array
+  for(var i = 0; i < radioButtons.length; i++){
+    //check every button's checked property IN ORDER
+    if(radioButtons[i].checked){
+      //if it's checked, save the hand value
+      userHand = radioButtons[i].value;
+    }
   }
 
   if(randHandNum === 0){
@@ -75,13 +84,12 @@ while(isPlaying && playerWins !== 3 && computerWins !== 3){
     resultsDiv.innerHTML = "sorry! we don't support " + userHand;
   }
 
-  if(playerWins !== 3 && computerWins !== 3){
-    isPlaying = confirm("do you want to play again?");
-  }
-}
+  playerWinsDisplay.textContent = playerWins;
+  compWins.textContent = computerWins;
 
-if(playerWins >= 3){
-  resultsDiv.innerHTML = "player wins!";
-} else if (computerWins >= 3){
-  resultsDiv.innerHTML = "computer wins!"
-}
+  if(playerWins >= 3){
+    resultsDiv.innerHTML = "player wins!";
+  } else if (computerWins >= 3){
+    resultsDiv.innerHTML = "computer wins!"
+  }
+};

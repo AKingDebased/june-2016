@@ -2,7 +2,7 @@ body{
   background-color:dodgerblue;
 }
 
-.log-in{
+.log-in, .verify{
   display:block;
   margin:0 auto;
   margin-top:15px;
@@ -10,4 +10,8 @@ body{
 
 .log-in-area{
   text-align:center;
+}
+
+.disabled{
+  opacity:.7;
 }

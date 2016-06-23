@@ -39,3 +39,30 @@ input, textarea{
   background-color:black;
   opacity:.4;
 }
+
+/* password strength */
+.strength div{
+  display:inline-block;
+  height:5px;
+  width:35px;
+}
+
+.weak, .ok, .strong{
+  opacity:.4;
+}
+
+.weak{
+  background-color:red;
+}
+
+.ok{
+  background-color:yellow;
+}
+
+.strong{
+  background-color:chartreuse;
+}
+
+.current{
+  opacity:1;
+}

@@ -73,40 +73,49 @@ $inputElements.on("focusout",function(){
   verified = false;
 });
 
-
+//password validation
 $passwordInputs.popover({
   placement:"left",
   trigger:"focus",
-  content:'<div class="strength"><div class="weak current"></div><div class="ok"></div><div class="strong"></div></div><p></p>',
+  content:'<div class="strength"><div class="weak current"></div><div class="ok"></div><div class="strong"></div></div><p class=passwords-match></p><p class=special-char></p>',
   html:true
 });
 
 var passwordsMatch = false;
+var passwordStrength = function(str){
+  var strength;
 
-
-$passwordInputs.on("focus",function(){
-  var passwordStrength = function(str){
-    var strength;
-
-    if(str.trim().length < 5){
-      strength = 0;
-    }
-
-    if(str.trim().length >= 5){
-      strength = 1;
-    }
-
-    if(str.length >= 10){
-      strength = 2;
-    }
-
-    return strength;
+  if(str.trim().length < 5){
+    strength = 0;
   }
 
+  if(str.trim().length >= 5){
+    strength = 1;
+  }
+
+  if(str.length >= 10){
+    strength = 2;
+  }
+
+  return strength;
+}
+
+var hasSpecialChars = function(str){
+  //using truthiness & falsiness
+  return str.match(/[A-Z]/) !== null && str.match(/[0-9]/) !== null && str.match(/!/) !== null || str.match(/#/) !== null || str.match(/&/) !== null
+}
+
+$passwordInputs.on("focus keyup",function(){
   if(passwordsMatch){
-    $(".popover-content p").text("passwords match!");
+    $(".popover-content .passwords-match").text("passwords match!");
   } else {
-    $(".popover-content p").text("passwords must match");
+    $(".popover-content .passwords-match").text("passwords must match");
+  }
+
+  if(!hasSpecialChars($(this).val())){
+    $(".popover-content .special-char").text("password must have a capital letter, number, and special character");
+  } else {
+    $(".popover-content .special-char").text("password has all necessary characters");
   }
 
   if(passwordStrength($(this).val()) === 0){
@@ -119,58 +128,19 @@ $passwordInputs.on("focus",function(){
     }
 
     $(".weak").addClass("current");
-  }
-
-  if(passwordStrength($(this).val()) === 1){
+  } else if(passwordStrength($(this).val()) === 1){
     if($(".strong").hasClass("current")){
       $(".strong").removeClass("current");
     }
 
-    $(".ok").addClass("current");
-  }
-
-  if(passwordStrength($(this).val()) === 2){
+    if(!$(".ok").hasClass("current")){
+      $(".ok").addClass("current");
+    }
+  } else if(passwordStrength($(this).val()) === 2){
     if(!$(".ok").hasClass("current")){
       $(".ok").addClass("current");
     }
 
-    $(".strong").addClass("current");
-  }
-})
-
-$passwordInputs.on("keyup",function(){
-  if($(".password").val().trim() !== $(".verify").val().trim()){
-    $(".popover-content p").text("passwords must match");
-    passwordsMatch = false;
-  } else {
-    $(".popover-content p").text("passwords match!");
-    passwordsMatch = true;
-  }
-
-  if($(this).val().trim().length < 5){
-    passwordStrength = 0;
-    if($(".ok").hasClass("current")){
-      $(".ok").removeClass("current");
-    }
-
-    if($(".strong").hasClass("current")){
-      $(".strong").removeClass("current");
-    }
-
-    $(".weak").addClass("current");
-  }
-
-  if($(this).val().trim().length >= 5){
-    passwordStrength = 1;
-    if($(".strong").hasClass("current")){
-      $(".strong").removeClass("current");
-    }
-
-    $(".ok").addClass("current");
-  }
-
-  if($(this).val().trim().length >= 10){
-    passwordStrength = 2;
     $(".strong").addClass("current");
   }
 });

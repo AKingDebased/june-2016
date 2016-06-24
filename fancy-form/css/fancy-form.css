@@ -66,3 +66,7 @@ input, textarea{
 .current{
   opacity:1;
 }
+
+.popover{
+  left:15px !important;
+}

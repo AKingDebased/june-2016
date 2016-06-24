@@ -24,11 +24,14 @@ logInButton.onclick = function(){
     if(attempts < 2){
       if(passwordEl.value === users[usernameEl.value]){
         //do the passwords match?
-        alert("welcome back " + usernameEl.value);
+        $("body").append('<div class="alert alert-success alert-dismissible log-in-alert" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>welcome back, ' + usernameEl.value + '!</div>');
+        $(".log-in-area").addClass("fadeOutUp");
       } else {
         attempts++;
         passwordEl.style.backgroundColor = "lightcoral";
-        alert("incorrect password!");
+        $(".password").addClass("shake").one("animationend",function(){
+          $(this).removeClass("shake");
+        });
       }
     } else {
       logInButton.disabled = true;
@@ -51,7 +54,8 @@ logInButton.onclick = function(){
         //save their information to the 'server'
         //you cannot save objects to localStorage, only strings
         localStorage.setItem("users",JSON.stringify(users));
-        console.log(usernameEl.value + " created with password " + passwordEl.value);
+        // console.log(usernameEl.value + " created with password " + passwordEl.value);
+        $("body").append('<div class="alert alert-success alert-dismissible log-in-alert" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>account created! welcome, ' + usernameEl.value + '!</div>');
       } else {
         alert("passwords need to match!");
       }
@@ -59,12 +63,10 @@ logInButton.onclick = function(){
       alert("you'll never see me!")
     }
 
-    var passwordVerify = document.createElement("input");
-    passwordVerify.className = "verify";
-    passwordVerify.placeholder = "verify password...";
-    passwordVerify.type = "password";
-    logInButton.textContent = "create account";
-    logInArea.insertBefore(passwordVerify,logInButton);
+    var $passwordVerify = $("<input>").addClass("verify animated fadeInDown").attr("type","password");
+
+    $(logInButton).text("create account");
+    $passwordVerify.insertAfter($(".password"));
 
     creatingAccount = true;
   }

@@ -16,7 +16,7 @@ body{
   opacity:.7;
 }
 
-.log-in-alert{
+.log-in-alert, .wrong-pass-alert{
   width:300px;
   position:absolute;
   top:25px;

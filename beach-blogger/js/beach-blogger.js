@@ -8,19 +8,68 @@ while the request is occurring*/
 /* application programming interface */
 
 
+var $searchBox = $("input");
+var $postsEl = $(".posts");
+var retrievedUser;
 
-setInterval(function(){
-  var randomPost = Math.floor(Math.random() * 100) + 1;
+var renderPosts = function(userPosts){
+  $postsEl.html("");
 
+  for(var i = 0; i < userPosts.length; i++){
+    var $post = $("<div>");
+    $post.append($("<h3>").text(userPosts[i].title));
+    $post.append($("<p>").text(userPosts[i].body));
+
+    $postsEl.append($post);
+  }
+}
+
+var getUserPosts = function(username){
+  /* promise - an object with special
+  methods that help us handle successful
+  and failed asynchronous behavior
+  (usually HTTP requests) */
   $.ajax({
-    //where are we going?
-    url:"http://jsonplaceholder.typicode.com/posts/" + randomPost,
-    //what do we do when we get there?
+    url:"http://jsonplaceholder.typicode.com/users/?username=" + username,
     method:"GET",
-    //what do we do when the data comes back?
-    success:function(serverData){
-      $("body").append("<h1>" + serverData.title + "</h1>");
-      $("body").append("<p>" + serverData.body + "</p>");
+  }).success(function(userInfo){
+    $(".user-info").html("see <a href='#'>" + userInfo[0].username + "'s</a> profile");
+    retrievedUser = userInfo[0];
+
+    $.ajax({
+      url:"http://jsonplaceholder.typicode.com/posts?userId=" + userInfo[0].id,
+      method:"GET"
+    }).success(renderPosts);
+  });
+};
+
+var populateModal = function(userData){
+  $(".modal-title").text(userData.username);
+  $(".modal-body").html($(".user-profile-template").html());
+  $(".email").text(userData.email);
+  $(".phone-num").text(userData.phone);
+  $(".comp-name").text(userData.company.name);
+  $(".comp-slogan").text(userData.company.catchPhrase);
+}
+
+$("input, button").on("click keydown",function(event){
+  if($(event.currentTarget).is("input")){
+    //if we hit the enter key
+    if(event.which === 13){
+      getUserPosts($searchBox.val());
+      $searchBox.val("");
     }
-  })
-},2000)
+  } else if($(event.currentTarget).is("button")){
+    if(event.which === 1){
+      getUserPosts($searchBox.val());
+      $searchBox.val("");
+    }
+  } else {
+    console.log("that's not right");
+  }
+});
+
+$(document).on("click","a",function(){
+  populateModal(retrievedUser);
+  $(".user-profile").modal("show");
+})

@@ -3,12 +3,47 @@
 <head>
   <meta charset="utf-8">
   <title>beach blogger</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
+  <div class="container">
+    <h1>search user's posts</h1>
+    <input placeholder="username ..." type="text">
+    <button>search</button>
+    <div class="user-info"></div>
+    <h2>posts</h2>
+    <div class="posts">
 
+    </div>
+  </div>
 
+  <div class="modal fade user-profile" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">username</h4>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script class="user-profile-template" type="template">
+    <h2>email</h2>
+    <p class="email"></p>
+    <h2>phone number</h2>
+    <p class="phone-num"></p>
+    <h2>company info</h2>
+    <h3>name</h3>
+    <p class="comp-name"></p>
+    <h3>slogan</h3>
+    <p class="comp-slogan"></p>
+  </script>
 
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="js/beach-blogger.js"></script>
 </body>
 </html>

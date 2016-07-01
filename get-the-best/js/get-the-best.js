@@ -1,4 +1,6 @@
 var getTopTracks = function(name){
+  var $countrySelect = $(".country-select");
+
   $.ajax({
     url:"https://api.spotify.com/v1/search?q=" + name + "&type=artist",
     method:"GET"
@@ -6,7 +8,7 @@ var getTopTracks = function(name){
     var artistId = artistData.artists.items[0].id;
 
     $.ajax({
-      url:"https://api.spotify.com/v1/artists/" + artistId + "/top-tracks?country=US",
+      url:"https://api.spotify.com/v1/artists/" + artistId + "/top-tracks?country=" + $countrySelect.val(),
       method:"GET"
     }).success(function(topTracks){
       //this function expects an array
@@ -36,7 +38,9 @@ var renderTopTracks = function(tracks){
       title:tracks[i].name,
       artist:tracks[i].artists[0].name,
       album:tracks[i].album.name,
-      songUrl:tracks[i].preview_url
+      songUrl:tracks[i].preview_url,
+      albumUrl:tracks[i].album.external_urls.spotify,
+      artistUrl:tracks[i].artists[0].external_urls.spotify
     });
     $tracksElement.append(trackHTML);
   }

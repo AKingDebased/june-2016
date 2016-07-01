@@ -1,0 +1,14 @@
+body{
+  background-image:url("http://wallpapercave.com/wp/6stSgiL.jpg");
+  background-size:cover;
+  color:white;
+}
+
+.game-area{
+  width:70%;
+  margin:0 auto;
+}
+
+.actors{
+  text-align:center;
+}

@@ -1,6 +1,18 @@
-.artist-search, .top-tracks{
+.play:hover{
+  color:lightgrey;
+}
+
+.play:active{
+  color:darkgrey;
+}
+
+.artist-search, .top-tracks, .country-select{
   width:70%;
   margin:0 auto;
+}
+
+.country-select{
+  margin-top:10px;
 }
 
 @media (max-width: 465px) {

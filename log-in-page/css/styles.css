@@ -25,3 +25,12 @@ body{
   z-index:100;
   box-shadow:3px 3px 10px grey;
 }
+
+.log-in-area input{
+  box-shadow:2px 2px 10px grey;
+  /* vendor prefixes */
+  -webkit-box-shadow:2px 2px 10px grey;
+  -moz-box-shadow:2px 2px 10px grey;
+  -ms-box-shadow:2px 2px 10p grey;
+  border-radius:6px;
+}
